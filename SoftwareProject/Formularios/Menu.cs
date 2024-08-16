@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SoftwareProject.Formularios.Inventario;
 
 
 namespace SoftwareProject
@@ -173,6 +174,7 @@ namespace SoftwareProject
 
         private void btnInfoInv_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new InformacionInv(cnx));
             Ocultar();
         }
 

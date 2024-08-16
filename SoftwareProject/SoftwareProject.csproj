@@ -59,11 +59,23 @@
     <Compile Include="Formularios\CRUD Clientes\EditarCliente.Designer.cs">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\EditarEmpleados.cs">
+    <Compile Include="Formularios\Empleados\EditarEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\EditarEmpleados.Designer.cs">
+    <Compile Include="Formularios\Empleados\EditarEmpleados.Designer.cs">
       <DependentUpon>EditarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Inventario\EditarInv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Inventario\EditarInv.Designer.cs">
+      <DependentUpon>EditarInv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Inventario\InformacionInv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Inventario\InformacionInv.Designer.cs">
+      <DependentUpon>InformacionInv.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Menu.cs">
       <SubType>Form</SubType>
@@ -83,10 +95,10 @@
     <Compile Include="Formularios\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\RegistroEmpleados.cs">
+    <Compile Include="Formularios\Empleados\RegistroEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\RegistroEmpleados.Designer.cs">
+    <Compile Include="Formularios\Empleados\RegistroEmpleados.Designer.cs">
       <DependentUpon>RegistroEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\RegistroUsuarios.cs">
@@ -103,8 +115,14 @@
     <EmbeddedResource Include="Formularios\CRUD Clientes\EditarCliente.resx">
       <DependentUpon>EditarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\EditarEmpleados.resx">
+    <EmbeddedResource Include="Formularios\Empleados\EditarEmpleados.resx">
       <DependentUpon>EditarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Inventario\EditarInv.resx">
+      <DependentUpon>EditarInv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Inventario\InformacionInv.resx">
+      <DependentUpon>InformacionInv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -115,7 +133,7 @@
     <EmbeddedResource Include="Formularios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\RegistroEmpleados.resx">
+    <EmbeddedResource Include="Formularios\Empleados\RegistroEmpleados.resx">
       <DependentUpon>RegistroEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\RegistroUsuarios.resx">
@@ -146,6 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\software-development.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
