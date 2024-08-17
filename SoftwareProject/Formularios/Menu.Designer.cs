@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.LateralMenu = new System.Windows.Forms.Panel();
+            this.subMenuP = new System.Windows.Forms.Panel();
+            this.btnInfoP = new System.Windows.Forms.Button();
+            this.btnAgregarP = new System.Windows.Forms.Button();
+            this.btnPaquetes = new System.Windows.Forms.Button();
+            this.subMenuS = new System.Windows.Forms.Panel();
+            this.btnInfoS = new System.Windows.Forms.Button();
+            this.btnAgregarS = new System.Windows.Forms.Button();
+            this.btnServicios = new System.Windows.Forms.Button();
             this.subMenuInventario = new System.Windows.Forms.Panel();
             this.btnInfoInv = new System.Windows.Forms.Button();
             this.btnCompraInv = new System.Windows.Forms.Button();
@@ -44,22 +52,15 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnServicios = new System.Windows.Forms.Button();
-            this.subMenuS = new System.Windows.Forms.Panel();
-            this.btnInfoS = new System.Windows.Forms.Button();
-            this.btnAgregarS = new System.Windows.Forms.Button();
-            this.subMenuP = new System.Windows.Forms.Panel();
-            this.btnInfoP = new System.Windows.Forms.Button();
-            this.btnAgregarP = new System.Windows.Forms.Button();
-            this.btnPaquetes = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.LateralMenu.SuspendLayout();
+            this.subMenuP.SuspendLayout();
+            this.subMenuS.SuspendLayout();
             this.subMenuInventario.SuspendLayout();
             this.subMenuClie.SuspendLayout();
             this.subMenuEmpleado.SuspendLayout();
             this.panelForms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.subMenuS.SuspendLayout();
-            this.subMenuP.SuspendLayout();
             this.SuspendLayout();
             // 
             // LateralMenu
@@ -80,8 +81,127 @@
             this.LateralMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.LateralMenu.Location = new System.Drawing.Point(0, 0);
             this.LateralMenu.Name = "LateralMenu";
-            this.LateralMenu.Size = new System.Drawing.Size(281, 723);
+            this.LateralMenu.Size = new System.Drawing.Size(281, 683);
             this.LateralMenu.TabIndex = 0;
+            // 
+            // subMenuP
+            // 
+            this.subMenuP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.subMenuP.Controls.Add(this.btnInfoP);
+            this.subMenuP.Controls.Add(this.btnAgregarP);
+            this.subMenuP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.subMenuP.Location = new System.Drawing.Point(0, 755);
+            this.subMenuP.Name = "subMenuP";
+            this.subMenuP.Size = new System.Drawing.Size(260, 101);
+            this.subMenuP.TabIndex = 9;
+            // 
+            // btnInfoP
+            // 
+            this.btnInfoP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInfoP.FlatAppearance.BorderSize = 0;
+            this.btnInfoP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfoP.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnInfoP.Location = new System.Drawing.Point(0, 45);
+            this.btnInfoP.Name = "btnInfoP";
+            this.btnInfoP.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.btnInfoP.Size = new System.Drawing.Size(260, 45);
+            this.btnInfoP.TabIndex = 3;
+            this.btnInfoP.Text = "Informacion";
+            this.btnInfoP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInfoP.UseVisualStyleBackColor = true;
+            this.btnInfoP.Click += new System.EventHandler(this.btnInfoP_Click);
+            // 
+            // btnAgregarP
+            // 
+            this.btnAgregarP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAgregarP.FlatAppearance.BorderSize = 0;
+            this.btnAgregarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarP.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAgregarP.Location = new System.Drawing.Point(0, 0);
+            this.btnAgregarP.Name = "btnAgregarP";
+            this.btnAgregarP.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.btnAgregarP.Size = new System.Drawing.Size(260, 45);
+            this.btnAgregarP.TabIndex = 1;
+            this.btnAgregarP.Text = "Agregar";
+            this.btnAgregarP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarP.UseVisualStyleBackColor = true;
+            this.btnAgregarP.Click += new System.EventHandler(this.btnAgregarP_Click);
+            // 
+            // btnPaquetes
+            // 
+            this.btnPaquetes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPaquetes.FlatAppearance.BorderSize = 0;
+            this.btnPaquetes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPaquetes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnPaquetes.Location = new System.Drawing.Point(0, 704);
+            this.btnPaquetes.Name = "btnPaquetes";
+            this.btnPaquetes.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.btnPaquetes.Size = new System.Drawing.Size(260, 51);
+            this.btnPaquetes.TabIndex = 8;
+            this.btnPaquetes.Text = "Paquetes";
+            this.btnPaquetes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPaquetes.UseVisualStyleBackColor = true;
+            this.btnPaquetes.Click += new System.EventHandler(this.btnPaquetes_Click);
+            // 
+            // subMenuS
+            // 
+            this.subMenuS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.subMenuS.Controls.Add(this.button1);
+            this.subMenuS.Controls.Add(this.btnInfoS);
+            this.subMenuS.Controls.Add(this.btnAgregarS);
+            this.subMenuS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.subMenuS.Location = new System.Drawing.Point(0, 568);
+            this.subMenuS.Name = "subMenuS";
+            this.subMenuS.Size = new System.Drawing.Size(260, 136);
+            this.subMenuS.TabIndex = 7;
+            // 
+            // btnInfoS
+            // 
+            this.btnInfoS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInfoS.FlatAppearance.BorderSize = 0;
+            this.btnInfoS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfoS.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnInfoS.Location = new System.Drawing.Point(0, 45);
+            this.btnInfoS.Name = "btnInfoS";
+            this.btnInfoS.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.btnInfoS.Size = new System.Drawing.Size(260, 45);
+            this.btnInfoS.TabIndex = 3;
+            this.btnInfoS.Text = "Informacion";
+            this.btnInfoS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInfoS.UseVisualStyleBackColor = true;
+            this.btnInfoS.Click += new System.EventHandler(this.btnInfoS_Click);
+            // 
+            // btnAgregarS
+            // 
+            this.btnAgregarS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAgregarS.FlatAppearance.BorderSize = 0;
+            this.btnAgregarS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarS.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAgregarS.Location = new System.Drawing.Point(0, 0);
+            this.btnAgregarS.Name = "btnAgregarS";
+            this.btnAgregarS.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.btnAgregarS.Size = new System.Drawing.Size(260, 45);
+            this.btnAgregarS.TabIndex = 1;
+            this.btnAgregarS.Text = "Agregar";
+            this.btnAgregarS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarS.UseVisualStyleBackColor = true;
+            this.btnAgregarS.Click += new System.EventHandler(this.btnAgregarS_Click);
+            // 
+            // btnServicios
+            // 
+            this.btnServicios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnServicios.FlatAppearance.BorderSize = 0;
+            this.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServicios.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnServicios.Location = new System.Drawing.Point(0, 517);
+            this.btnServicios.Name = "btnServicios";
+            this.btnServicios.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.btnServicios.Size = new System.Drawing.Size(260, 51);
+            this.btnServicios.TabIndex = 6;
+            this.btnServicios.Text = "Servicios";
+            this.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServicios.UseVisualStyleBackColor = true;
+            this.btnServicios.Click += new System.EventHandler(this.button1_Click);
             // 
             // subMenuInventario
             // 
@@ -151,7 +271,6 @@
             this.subMenuClie.Name = "subMenuClie";
             this.subMenuClie.Size = new System.Drawing.Size(260, 50);
             this.subMenuClie.TabIndex = 3;
- 
             // 
             // btnAConsultarClie
             // 
@@ -261,144 +380,41 @@
             this.panelForms.Controls.Add(this.pictureBox1);
             this.panelForms.Location = new System.Drawing.Point(281, 0);
             this.panelForms.Name = "panelForms";
-            this.panelForms.Size = new System.Drawing.Size(1067, 723);
+            this.panelForms.Size = new System.Drawing.Size(1067, 683);
             this.panelForms.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(312, 96);
+            this.pictureBox1.Location = new System.Drawing.Point(312, 76);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(512, 512);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // btnServicios
+            // button1
             // 
-            this.btnServicios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnServicios.FlatAppearance.BorderSize = 0;
-            this.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServicios.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnServicios.Location = new System.Drawing.Point(0, 517);
-            this.btnServicios.Name = "btnServicios";
-            this.btnServicios.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnServicios.Size = new System.Drawing.Size(260, 51);
-            this.btnServicios.TabIndex = 6;
-            this.btnServicios.Text = "Servicios";
-            this.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnServicios.UseVisualStyleBackColor = true;
-            this.btnServicios.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // subMenuS
-            // 
-            this.subMenuS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.subMenuS.Controls.Add(this.btnInfoS);
-            this.subMenuS.Controls.Add(this.btnAgregarS);
-            this.subMenuS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subMenuS.Location = new System.Drawing.Point(0, 568);
-            this.subMenuS.Name = "subMenuS";
-            this.subMenuS.Size = new System.Drawing.Size(260, 101);
-            this.subMenuS.TabIndex = 7;
-            // 
-            // btnInfoS
-            // 
-            this.btnInfoS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfoS.FlatAppearance.BorderSize = 0;
-            this.btnInfoS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfoS.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnInfoS.Location = new System.Drawing.Point(0, 45);
-            this.btnInfoS.Name = "btnInfoS";
-            this.btnInfoS.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnInfoS.Size = new System.Drawing.Size(260, 45);
-            this.btnInfoS.TabIndex = 3;
-            this.btnInfoS.Text = "Informacion";
-            this.btnInfoS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInfoS.UseVisualStyleBackColor = true;
-            this.btnInfoS.Click += new System.EventHandler(this.btnInfoS_Click);
-            // 
-            // btnAgregarS
-            // 
-            this.btnAgregarS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAgregarS.FlatAppearance.BorderSize = 0;
-            this.btnAgregarS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarS.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAgregarS.Location = new System.Drawing.Point(0, 0);
-            this.btnAgregarS.Name = "btnAgregarS";
-            this.btnAgregarS.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnAgregarS.Size = new System.Drawing.Size(260, 45);
-            this.btnAgregarS.TabIndex = 1;
-            this.btnAgregarS.Text = "Agregar";
-            this.btnAgregarS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarS.UseVisualStyleBackColor = true;
-            this.btnAgregarS.Click += new System.EventHandler(this.btnAgregarS_Click);
-            // 
-            // subMenuP
-            // 
-            this.subMenuP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.subMenuP.Controls.Add(this.btnInfoP);
-            this.subMenuP.Controls.Add(this.btnAgregarP);
-            this.subMenuP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subMenuP.Location = new System.Drawing.Point(0, 720);
-            this.subMenuP.Name = "subMenuP";
-            this.subMenuP.Size = new System.Drawing.Size(260, 101);
-            this.subMenuP.TabIndex = 9;
-            // 
-            // btnInfoP
-            // 
-            this.btnInfoP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInfoP.FlatAppearance.BorderSize = 0;
-            this.btnInfoP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfoP.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnInfoP.Location = new System.Drawing.Point(0, 45);
-            this.btnInfoP.Name = "btnInfoP";
-            this.btnInfoP.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnInfoP.Size = new System.Drawing.Size(260, 45);
-            this.btnInfoP.TabIndex = 3;
-            this.btnInfoP.Text = "Informacion";
-            this.btnInfoP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInfoP.UseVisualStyleBackColor = true;
-            this.btnInfoP.Click += new System.EventHandler(this.btnInfoP_Click);
-            // 
-            // btnAgregarP
-            // 
-            this.btnAgregarP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAgregarP.FlatAppearance.BorderSize = 0;
-            this.btnAgregarP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarP.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAgregarP.Location = new System.Drawing.Point(0, 0);
-            this.btnAgregarP.Name = "btnAgregarP";
-            this.btnAgregarP.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.btnAgregarP.Size = new System.Drawing.Size(260, 45);
-            this.btnAgregarP.TabIndex = 1;
-            this.btnAgregarP.Text = "Agregar";
-            this.btnAgregarP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarP.UseVisualStyleBackColor = true;
-            this.btnAgregarP.Click += new System.EventHandler(this.btnAgregarP_Click);
-            // 
-            // btnPaquetes
-            // 
-            this.btnPaquetes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPaquetes.FlatAppearance.BorderSize = 0;
-            this.btnPaquetes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPaquetes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnPaquetes.Location = new System.Drawing.Point(0, 669);
-            this.btnPaquetes.Name = "btnPaquetes";
-            this.btnPaquetes.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnPaquetes.Size = new System.Drawing.Size(260, 51);
-            this.btnPaquetes.TabIndex = 8;
-            this.btnPaquetes.Text = "Paquetes";
-            this.btnPaquetes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPaquetes.UseVisualStyleBackColor = true;
-            this.btnPaquetes.Click += new System.EventHandler(this.btnPaquetes_Click);
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.Location = new System.Drawing.Point(0, 90);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(260, 45);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Solicitar Servicio";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1347, 723);
+            this.ClientSize = new System.Drawing.Size(1347, 683);
             this.Controls.Add(this.panelForms);
             this.Controls.Add(this.LateralMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -409,14 +425,14 @@
             this.Text = "Servicio Tecnico Avanzado";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.LateralMenu.ResumeLayout(false);
+            this.subMenuP.ResumeLayout(false);
+            this.subMenuS.ResumeLayout(false);
             this.subMenuInventario.ResumeLayout(false);
             this.subMenuClie.ResumeLayout(false);
             this.subMenuEmpleado.ResumeLayout(false);
             this.panelForms.ResumeLayout(false);
             this.panelForms.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.subMenuS.ResumeLayout(false);
-            this.subMenuP.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -446,6 +462,7 @@
         private System.Windows.Forms.Button btnInfoP;
         private System.Windows.Forms.Button btnAgregarP;
         private System.Windows.Forms.Button btnPaquetes;
+        private System.Windows.Forms.Button button1;
     }
 }
 
