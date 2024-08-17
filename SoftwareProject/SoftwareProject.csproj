@@ -168,9 +168,6 @@
   <ItemGroup>
     <None Include="Resources\inventario.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formularios\Paquetes\" />
-    <Folder Include="Formularios\Servicios\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
