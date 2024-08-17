@@ -36,6 +36,8 @@ namespace SoftwareProject
             subMenuClie.Visible = false;
             subMenuEmpleado.Visible = false;
             subMenuInventario.Visible = false;
+            subMenuS.Visible = false;
+            subMenuP.Visible = false;
         }
 
         private void Ocultar()
@@ -53,6 +55,16 @@ namespace SoftwareProject
             if (subMenuInventario.Visible == true)
             {
                 subMenuInventario.Visible = false;
+            }
+
+            if (subMenuS.Visible == true)
+            {
+                subMenuS.Visible = false;
+            }
+
+            if(subMenuP.Visible == true)
+            {
+                subMenuP.Visible = false;
             }
 
         }
@@ -168,7 +180,7 @@ namespace SoftwareProject
 
         private void btnCompraInv_Click(object sender, EventArgs e)
         {
-            //Prueba gitHub siuuu
+            
             Ocultar();
         }
 
@@ -180,9 +192,39 @@ namespace SoftwareProject
 
         #endregion Metodos
 
-        private void subMenuClie_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Mostrar(subMenuS);
+        }
+
+        private void btnAgregarS_Click(object sender, EventArgs e)
+        {
+            //OpenChildForm(new El formulario que van a llamar por ejemplo infoPaquetes(cnx));
+            Ocultar();
+        }
+
+        private void btnInfoS_Click(object sender, EventArgs e)
+        {
+            //OpenChildForm(new El formulario que van a llamar por ejemplo infoPaquetes(cnx));
+            Ocultar();
+        }
+
+        private void btnPaquetes_Click(object sender, EventArgs e)
+        {
+            Mostrar(subMenuP);
+        }
+
+        private void btnAgregarP_Click(object sender, EventArgs e)
+        {
+            //OpenChildForm(new El formulario que van a llamar por ejemplo infoPaquetes(cnx));
+            Ocultar();
+        }
+
+        private void btnInfoP_Click(object sender, EventArgs e)
+        {
+            //OpenChildForm(new El formulario que van a llamar por ejemplo infoPaquetes(cnx));
+            Ocultar();
         }
     }
 }
