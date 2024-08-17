@@ -31,7 +31,13 @@ namespace SoftwareProject.Formularios.CRUD_Clientes
         private void EditarCliente_Load(object sender, EventArgs e)
         {
 
+            
+
             TablaCliente(cnx, ClienteID);
+
+           
+           
+            
 
 
         }
@@ -40,8 +46,10 @@ namespace SoftwareProject.Formularios.CRUD_Clientes
 
             try
             {
-                String consulta = "Select * from vConsultarClientes where Clienteid = " + cliente;
-                SqlCommand cmd = new SqlCommand(consulta, conexion);
+                SqlCommand cmd = new SqlCommand("spClientesVer", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@cliente",cliente);
+
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
@@ -52,52 +60,29 @@ namespace SoftwareProject.Formularios.CRUD_Clientes
                     txtCorreo.Text = reader["E_mail"].ToString();
                     txtTelefono.Text = reader["Telefono"].ToString();
                     txtDireccion.Text = reader["Direccion"].ToString();
+                    if (reader["Estado"].ToString() == "I") 
+                    {
+                        chkEstado.Checked = false;
+                    txtPaquete.Visible = false;
+                        cmxPaquete.Visible = false;
+                    }
                     if (reader["Estado"].ToString() == "A")
                     {
                         chkEstado.Checked = true;
+                        if (reader["PaqueteId"] == DBNull.Value) cmxPaquete.Text = "Ninguno";
+                        if (reader["PaqueteId"].ToString() == "1") cmxPaquete.Text = "Economy";
+                        if (reader["PaqueteId"].ToString() == "2") cmxPaquete.Text = "Master";
+                        if (reader["PaqueteId"].ToString() == "3") cmxPaquete.Text = "MasterPremiun+";
                     }
-                    if (reader["Estado"].ToString() == "I")
-                    {
-                        chkEstado.Checked = false;
-                    }
-
-
-
+                    reader.Close();
+                    cmd.Dispose();
                 }
-                reader.Close();
-                cmd.Dispose();
-                
-                
-                    SqlCommand cmd2 = new SqlCommand("Select * from vClientesInactivos where Clienteid = " + cliente, conexion);
-                    SqlDataReader rdr = cmd2.ExecuteReader();
-                    if (rdr.Read())
-                    {
-                        txtNombre.Text = rdr["Nombre"].ToString();
-                        txtUsername.Text = rdr["Username"].ToString();
-                        txtDNI.Text = rdr["DNI"].ToString();
-                        txtCorreo.Text = rdr["E_mail"].ToString();
-                        txtTelefono.Text = rdr["Telefono"].ToString();
-                        txtDireccion.Text = rdr["Direccion"].ToString();
-                        if (rdr["Estado"].ToString() == "A")
-                        {
-                            chkEstado.Checked = true;
-                        }
-                        if (rdr["Estado"].ToString() == "I")
-                        {
-                            chkEstado.Checked = false;
-                        }
 
-
-
-                    }
-                    rdr.Close();
-                    cmd2.Dispose();
-                
             }
-            catch (SqlException ex) 
-            { MessageBox.Show("Ocurrio un Error " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Algo paso " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
-        
         }
 
         private void btnEditarClientes_Click(object sender, EventArgs e)
@@ -113,6 +98,7 @@ namespace SoftwareProject.Formularios.CRUD_Clientes
                 cmd.Parameters.AddWithValue("@Tel", txtTelefono.Text);
                 cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
                 cmd.Parameters.AddWithValue("@ClienteID", ClienteID);
+                
                
                 if (chkEstado.Checked == true)
                 {
@@ -122,7 +108,16 @@ namespace SoftwareProject.Formularios.CRUD_Clientes
                 {
                     cmd.Parameters.AddWithValue("@Estado", "I");
                 }
-
+                if (txtPaquete.Visible == true && cmxPaquete.Visible == true)
+                {
+                    if (cmxPaquete.SelectedItem.ToString() == "Ninguno") cmd.Parameters.AddWithValue("@Paquete", DBNull.Value);
+                    if (cmxPaquete.SelectedItem.ToString() == "Economy") cmd.Parameters.AddWithValue("@Paquete", 1);
+                    if (cmxPaquete.SelectedItem.ToString() == "Master") cmd.Parameters.AddWithValue("@Paquete", 2);
+                    if (cmxPaquete.SelectedItem.ToString() == "MasterPremiun+") cmd.Parameters.AddWithValue("@Paquete", 3);
+                }
+                else {
+                    cmd.Parameters.AddWithValue("@Paquete", DBNull.Value);
+                }
 
 
                 if (ValidacionesClientes() == true)
@@ -180,7 +175,13 @@ namespace SoftwareProject.Formularios.CRUD_Clientes
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
+            this.Dispose();
+        }
+
+        private void cmxPaquete_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

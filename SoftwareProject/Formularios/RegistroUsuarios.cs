@@ -41,6 +41,7 @@ namespace SoftwareProject.Formularios
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            ValidacionesClientes();
             if (UsuarioExiste(txtNombre.Text))
             {
                 MessageBox.Show("El usuario que desea registrar ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -141,6 +142,44 @@ namespace SoftwareProject.Formularios
           
 
 
+        }
+
+        private bool ValidacionesClientes()
+        {
+            bool CONTINUAR = true;
+
+            if (txtNombre.Text.Length < 3 || System.Text.RegularExpressions.Regex.IsMatch(txtNombre.Text, @"\d"))
+            {
+                MessageBox.Show("El Nombre debe tener almenos 3 Letras y que no tenga numeros", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                CONTINUAR = false;
+            }
+            if (txtUsername.Text.Length < 2)
+            {
+                MessageBox.Show("El USERNAME debe tener almenos 2 Caracteres", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                CONTINUAR = false;
+            }
+            if (txtMail.Text.Length < 6 || !txtMail.Text.Contains("@") && !txtMail.Text.Contains(".com"))
+            {
+                MessageBox.Show("El CORREO debe tener almenos 1 caracter antes del @, incluir @ y tambien un .com ", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                CONTINUAR = false;
+            }
+            if (txtDNI.Text.Length < 15 || !txtDNI.Text.Contains("-"))
+            {
+                MessageBox.Show("El DNI debe contener 15 caracteres de la siguiente forma 0000-0000-00000", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                CONTINUAR = false;
+            }
+            if (txtTelefono.Text.Length < 8 || !System.Text.RegularExpressions.Regex.IsMatch(txtTelefono.Text, @"^\d+$"))
+            {
+                MessageBox.Show("Debe INgresar valores correctos y un numero adecuado para Telefono", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                CONTINUAR = false;
+            }
+            if (txtDireccion.Text.Length <= 0 || System.Text.RegularExpressions.Regex.IsMatch(txtDireccion.Text, @"\d"))
+            {
+                MessageBox.Show("Ingrese Departamento y Colonia", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                CONTINUAR = false;
+            }
+
+            return CONTINUAR;
         }
 
         //private void txtNombre_Enter(object sender, EventArgs e)

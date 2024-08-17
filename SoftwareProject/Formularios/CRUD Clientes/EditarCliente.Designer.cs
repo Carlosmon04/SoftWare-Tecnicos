@@ -49,6 +49,8 @@
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtPaquete = new System.Windows.Forms.TextBox();
+            this.cmxPaquete = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,6 +59,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
+            this.panel2.Controls.Add(this.cmxPaquete);
+            this.panel2.Controls.Add(this.txtPaquete);
             this.panel2.Controls.Add(this.btnSalir);
             this.panel2.Controls.Add(this.btnEditarClientes);
             this.panel2.Controls.Add(this.textBox8);
@@ -140,7 +144,7 @@
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox7.Location = new System.Drawing.Point(55, 424);
+            this.textBox7.Location = new System.Drawing.Point(64, 466);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(240, 20);
@@ -238,7 +242,7 @@
             this.chkEstado.AutoSize = true;
             this.chkEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEstado.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.chkEstado.Location = new System.Drawing.Point(361, 416);
+            this.chkEstado.Location = new System.Drawing.Point(361, 453);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(108, 33);
             this.chkEstado.TabIndex = 8;
@@ -308,6 +312,34 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // txtPaquete
+            // 
+            this.txtPaquete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
+            this.txtPaquete.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPaquete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPaquete.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtPaquete.Location = new System.Drawing.Point(64, 407);
+            this.txtPaquete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPaquete.Name = "txtPaquete";
+            this.txtPaquete.Size = new System.Drawing.Size(240, 20);
+            this.txtPaquete.TabIndex = 27;
+            this.txtPaquete.Text = "Paquete";
+            this.txtPaquete.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cmxPaquete
+            // 
+            this.cmxPaquete.FormattingEnabled = true;
+            this.cmxPaquete.Items.AddRange(new object[] {
+            "Ninguno",
+            "Economy",
+            "Master",
+            "MasterPremiun+"});
+            this.cmxPaquete.Location = new System.Drawing.Point(301, 403);
+            this.cmxPaquete.Name = "cmxPaquete";
+            this.cmxPaquete.Size = new System.Drawing.Size(231, 24);
+            this.cmxPaquete.TabIndex = 28;
+            this.cmxPaquete.SelectedIndexChanged += new System.EventHandler(this.cmxPaquete_SelectedIndexChanged);
+            // 
             // EditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -348,5 +380,7 @@
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cmxPaquete;
+        private System.Windows.Forms.TextBox txtPaquete;
     }
 }

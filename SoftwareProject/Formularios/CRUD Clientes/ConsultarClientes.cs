@@ -89,44 +89,34 @@ namespace SoftwareProject.Formularios.CRUD_Clientes
         {
             try
             {
-                int ClienteID = 0;
-
-                // Verifica si el valor de TabClientesInactivos en la fila actual no es null
-                if (TabClientesInactivos != null && TabClientesInactivos.DefaultView.Count > 0)
+                if (chkInactivos.Checked == false)
                 {
-                    var valor = TabClientesInactivos.DefaultView[dataGridView1.CurrentRow.Index]["Clienteid"];
-                    if (valor != DBNull.Value)
+                    if (dataGridView1.SelectedRows.Count > 0)
                     {
-                        ClienteID = (int)valor;
+                        int EmpleadoUserId = (int)TabClientes.DefaultView[dataGridView1.CurrentRow.Index]["Clienteid"];
+
+                        EditarCliente r = new EditarCliente(cnx, EmpleadoUserId);
+                        r.Visible = true;
                     }
                 }
 
-                // Si ClienteID sigue siendo 0, asigna el valor de TabClientes
-                if (ClienteID == 0 && TabClientes != null && TabClientes.DefaultView.Count > 0)
+                if (chkInactivos.Checked == true)
                 {
-                    var valor = TabClientes.DefaultView[dataGridView1.CurrentRow.Index]["Clienteid"];
-                    if (valor != DBNull.Value)
+                    if (dataGridView1.SelectedRows.Count > 0)
                     {
-                        ClienteID = (int)valor;
+                        int Inactivos = (int)TabClientesInactivos.DefaultView[dataGridView1.CurrentRow.Index]["Clienteid"];
+
+                        EditarCliente r = new EditarCliente(cnx, Inactivos);
+                        r.Visible = true;
                     }
                 }
 
-                // Verifica si se encontró un ClienteID válido
-                if (ClienteID > 0)
-                {
-                    EditarCliente EC = new EditarCliente(cnx, ClienteID);
-                    EC.Visible = true;
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró un ClienteID válido para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Algo pasó: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
+            catch (SqlException ex)
+            { MessageBox.Show("" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop); }
         }
+
+
 
 
         private void btnRegresarC_Click(object sender, EventArgs e)
@@ -141,35 +131,44 @@ namespace SoftwareProject.Formularios.CRUD_Clientes
 
         private void chkInactivos_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkInactivos.Checked == true)
+            try
             {
-                TabClientesInactivos = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter("Select * from vClientesInactivos", cnx);
-                adapter.Fill(TabClientesInactivos);
-                dataGridView1.DataSource = TabClientesInactivos;
+                DataTable dataTable = new DataTable();
+                string consulta = chkInactivos.Checked ? "Select * from vClientesInactivos" : "Select * from vConsultarClientes";
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(consulta, cnx))
+                {
+                    adapter.Fill(dataTable);
+                }
+
+                dataGridView1.DataSource = dataTable;
                 dataGridView1.ReadOnly = true;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView1.ScrollBars = ScrollBars.Both;
+
+                if (chkInactivos.Checked)
+                {
+                    TabClientesInactivos = dataTable;
+                }
+                else
+                {
+                    TabClientes = dataTable;
+                }
+
                 Estado();
             }
-
-
-            else {
-                String consulta = "Select * from vConsultarClientes";
-
-                TabClientes = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(consulta, cnx);
-                adapter.Fill(TabClientes);
-                dataGridView1.DataSource = TabClientes;
-                dataGridView1.ReadOnly = true;
-                dataGridView1.AllowUserToAddRows = false;
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                dataGridView1.ScrollBars = ScrollBars.Both;
-                Estado();
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
 
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
