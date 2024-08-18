@@ -226,5 +226,13 @@ namespace SoftwareProject
             OpenChildForm(new VerPaquetes(cnx));
             Ocultar();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            SolicitarServicio s = new SolicitarServicio(cnx, userID);
+            s.Visible = true;
+
+        }
     }
 }
