@@ -35,6 +35,7 @@
             this.btnAgregarP = new System.Windows.Forms.Button();
             this.btnPaquetes = new System.Windows.Forms.Button();
             this.subMenuS = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnInfoS = new System.Windows.Forms.Button();
             this.btnAgregarS = new System.Windows.Forms.Button();
             this.btnServicios = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.LateralMenu.SuspendLayout();
             this.subMenuP.SuspendLayout();
             this.subMenuS.SuspendLayout();
@@ -154,6 +154,22 @@
             this.subMenuS.Name = "subMenuS";
             this.subMenuS.Size = new System.Drawing.Size(260, 136);
             this.subMenuS.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.Location = new System.Drawing.Point(0, 90);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(260, 45);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Solicitar Servicio";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnInfoS
             // 
@@ -393,21 +409,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Location = new System.Drawing.Point(0, 90);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(260, 45);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Solicitar Servicio";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 

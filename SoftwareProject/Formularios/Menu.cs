@@ -226,5 +226,13 @@ namespace SoftwareProject
             //OpenChildForm(new El formulario que van a llamar por ejemplo infoPaquetes(cnx));
             Ocultar();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            SolicitarServicio s = new SolicitarServicio(cnx, userID);
+            s.Visible = true;
+
+        }
     }
 }
