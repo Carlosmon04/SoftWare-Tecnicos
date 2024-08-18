@@ -24,7 +24,7 @@ namespace SoftwareProject
         {
             InitializeComponent();
             Design();
-            cnx= conexion;
+           cnx= conexion;
             userID = usuario;
         }
 
@@ -38,7 +38,6 @@ namespace SoftwareProject
             subMenuInventario.Visible = false;
             subMenuS.Visible = false;
             subMenuP.Visible = false;
-            subMenuFinanza.Visible = false;
         }
 
         private void Ocultar()
@@ -67,12 +66,6 @@ namespace SoftwareProject
             {
                 subMenuP.Visible = false;
             }
-
-            if (subMenuFinanza.Visible == true)
-            {
-                subMenuFinanza.Visible = false;
-            }
-
 
         }
 
@@ -187,7 +180,7 @@ namespace SoftwareProject
 
         private void btnCompraInv_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Compra(cnx, userID));
+            
             Ocultar();
         }
 
@@ -224,46 +217,13 @@ namespace SoftwareProject
 
         private void btnAgregarP_Click(object sender, EventArgs e)
         {
-           
+            OpenChildForm(new Paquetes(cnx, userID));
             Ocultar();
         }
 
         private void btnInfoP_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new VerPaquetes(cnx));
-            Ocultar();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-            SolicitarServicio s = new SolicitarServicio(cnx, userID);
-            s.Visible = true;
-
-        }
-
-        private void btnFinanzas_Click(object sender, EventArgs e)
-        {
-            Mostrar(subMenuFinanza);
-        }
-
-        private void btnCuentas_Click(object sender, EventArgs e)
-        {
-            Ocultar();
-        }
-
-        private void btnActividad_Click(object sender, EventArgs e)
-        {
-            Ocultar();
-        }
-
-        private void btnVerSolicitudes_Click(object sender, EventArgs e)
-        {
-            Ocultar();
-        }
-
-        private void btnComprarA_Click(object sender, EventArgs e)
-        {
+            //OpenChildForm(new El formulario que van a llamar por ejemplo infoPaquetes(cnx));
             Ocultar();
         }
     }
