@@ -79,6 +79,7 @@
             this.Name = "Paquetes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Paquetes";
+            this.Load += new System.EventHandler(this.Paquetes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

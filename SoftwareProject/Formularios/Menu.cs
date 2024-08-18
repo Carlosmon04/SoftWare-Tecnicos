@@ -180,7 +180,7 @@ namespace SoftwareProject
 
         private void btnCompraInv_Click(object sender, EventArgs e)
         {
-            
+            OpenChildForm(new Compra(cnx, userID));
             Ocultar();
         }
 

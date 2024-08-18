@@ -53,6 +53,12 @@
     <Compile Include="Formularios\CARLITOS1.Designer.cs">
       <DependentUpon>CARLITOS1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Compra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Compra.Designer.cs">
+      <DependentUpon>Compra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\CRUD Clientes\ConsultarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\CARLITOS1.resx">
       <DependentUpon>CARLITOS1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Compra.resx">
+      <DependentUpon>Compra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\CRUD Clientes\ConsultarClientes.resx">
       <DependentUpon>ConsultarClientes.cs</DependentUpon>

@@ -31,7 +31,9 @@ namespace SoftwareProject.Formularios
             userID = usuario;
         }
 
-      
+        private void Paquetes_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
