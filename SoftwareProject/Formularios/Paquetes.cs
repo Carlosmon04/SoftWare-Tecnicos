@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwareProject.Formularios.Formularios_de_DELETE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,153 +16,96 @@ namespace SoftwareProject.Formularios
     public partial class Paquetes : Form
     {
         private SqlConnection cnx;
-        private int userID;
+        private SqlCommand cmd;
+        private SqlDataReader data;
+        private String Nombre;
+        private int Id,Horas;
+        private float Precio;
 
-        SqlCommand cmd;
-        SqlDataReader data;
 
-        string Panel1Ser1, Panel1Ser2, Panel1Ser3,
-               Panel2Ser1, Panel2Ser2, Panel2Ser3,
-               Panel3Ser1, Panel3Ser2, Panel3Ser3;
-
-        public Paquetes()
+        private void Paquetes_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
+            CargarDatos();
+            txtNombre.Text = Nombre;
+            txtHoras.Text = Horas.ToString();
+            txtPrecio.Text = Precio.ToString();
         }
-        public Paquetes(SqlConnection conexion, int usuario)
+
+        public Paquetes(SqlConnection conexion, int id, String nombre, float precio, int horas )
         {
             InitializeComponent();
             cnx = conexion;
-            userID = usuario;
+            Nombre = nombre;
+            Id = id;
+            Precio = precio;
+            Horas = horas;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-        private void label2_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
+            this.Close();
 
-        }
-        private void Paquetes_Load(object sender, EventArgs e)
-        {
+            Menu form1 = Application.OpenForms.OfType<Menu>().FirstOrDefault();
 
-        }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-            try
+            if (form1 != null)
             {
-                cmd = new SqlCommand("spServioPorPaquete", cnx);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@paqueteid", 1);
-
-                
-                data=cmd.ExecuteReader();
-
-                List<string> columna1Datos = new List<string>();
-
-                while (data.Read())
-                {
-                    // Accede a los datos de cada fila
-                    string valorColumna1 = data["nombre"].ToString();
-                    columna1Datos.Add(valorColumna1);
-                }
-
-                Panel1Ser1 = columna1Datos[0];
-                Panel1Ser2 = columna1Datos[1];
-                Panel1Ser3 = columna1Datos[2];
-                
-                data.Close();
-
+                form1.OpenChildForm(new VerPaquetes(cnx));
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Ocurrio un Error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            Servicio1.Text = Panel1Ser1;
-            servicio2.Text = Panel1Ser2;
-            servicio3.Text = Panel1Ser3;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void CargarDatos()
         {
             try
             {
-                cmd = new SqlCommand("spServioPorPaquete", cnx);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@paqueteid", 2);
+                string query = "exec spRecuperarServicios @ID";
 
+               
+ 
+                SqlCommand command = new SqlCommand(query, cnx);
+                command.Parameters.AddWithValue("@ID", Id);
+                SqlDataReader reader = command.ExecuteReader();
 
-                data = cmd.ExecuteReader();
+                int yOffset = 5; 
 
-                List<string> columna1Datos = new List<string>();
-
-                while (data.Read())
+               
+                if (!this.Controls.Contains(panelLabels))
                 {
-                    // Accede a los datos de cada fila
-                    string valorColumna1 = data["nombre"].ToString();
-                    columna1Datos.Add(valorColumna1);
+                    this.Controls.Add(panelLabels);
+                    panelLabels.AutoScroll = true; 
                 }
 
-                Panel2Ser1 = columna1Datos[0];
-                Panel2Ser2 = columna1Datos[1];
-                Panel2Ser3 = columna1Datos[2];
 
-                data.Close();
-
-                
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Ocurrio un Error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            Servicio4.Text = Panel2Ser1;
-            Servicio5.Text = Panel2Ser2;
-            Servicio6.Text = Panel2Ser3;
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            try
-            {
-                cmd = new SqlCommand("spServioPorPaquete", cnx);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@paqueteid", 3);
-
-
-                data = cmd.ExecuteReader();
-
-                List<string> columna1Datos = new List<string>();
-
-                while (data.Read())
+                while (reader.Read())
                 {
-                    // Accede a los datos de cada fila
-                    string valorColumna1 = data["nombre"].ToString();
-                    columna1Datos.Add(valorColumna1);
+                    string nombre = reader.GetString(0);
+
+                    Label nuevoLabel = new Label
+                    {
+                        Text = nombre,
+                        AutoSize = true,
+                        Location = new System.Drawing.Point(10, yOffset),
+                        Font = new Font("Cambria Math", 8, FontStyle.Bold)
+                    };
+
+                    
+                    panelLabels.Controls.Add(nuevoLabel);
+                    yOffset += nuevoLabel.Height - 10;
+                    nuevoLabel.ForeColor = Color.Black;
+                   
                 }
 
-                Panel3Ser1 = columna1Datos[0];
-                Panel3Ser2 = columna1Datos[1];
-                Panel3Ser3 = columna1Datos[2];
-
-                data.Close();
-
-                
+                reader.Close();
+              
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocurrio un Error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            Servicio7.Text = Panel3Ser1;
-            Servicio8.Text = Panel3Ser2;
-            Servicio9.Text = Panel3Ser3;
-
         }
-       
+
+
 
     }
 }
+
