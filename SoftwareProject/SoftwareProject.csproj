@@ -125,6 +125,12 @@
     <Compile Include="Formularios\RegistroUsuarios.Designer.cs">
       <DependentUpon>RegistroUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\VerPaquetes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\VerPaquetes.Designer.cs">
+      <DependentUpon>VerPaquetes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\CARLITOS1.resx">
@@ -166,6 +172,9 @@
     <EmbeddedResource Include="Formularios\RegistroUsuarios.resx">
       <DependentUpon>RegistroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\VerPaquetes.resx">
+      <DependentUpon>VerPaquetes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -193,8 +202,19 @@
     <None Include="Resources\software-development.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\reparar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reparar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\inventario.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\billete-de-banco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendario.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
