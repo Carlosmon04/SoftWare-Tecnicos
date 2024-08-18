@@ -217,14 +217,22 @@ namespace SoftwareProject
 
         private void btnAgregarP_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Paquetes(cnx, userID));
+           
             Ocultar();
         }
 
         private void btnInfoP_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new El formulario que van a llamar por ejemplo infoPaquetes(cnx));
+            OpenChildForm(new VerPaquetes(cnx));
             Ocultar();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            SolicitarServicio s = new SolicitarServicio(cnx, userID);
+            s.Visible = true;
+
         }
     }
 }
