@@ -24,7 +24,7 @@ namespace SoftwareProject
         {
             InitializeComponent();
             Design();
-           cnx= conexion;
+            cnx= conexion;
             userID = usuario;
         }
 
@@ -38,6 +38,7 @@ namespace SoftwareProject
             subMenuInventario.Visible = false;
             subMenuS.Visible = false;
             subMenuP.Visible = false;
+            subMenuFinanza.Visible = false;
         }
 
         private void Ocultar()
@@ -66,6 +67,12 @@ namespace SoftwareProject
             {
                 subMenuP.Visible = false;
             }
+
+            if (subMenuFinanza.Visible == true)
+            {
+                subMenuFinanza.Visible = false;
+            }
+
 
         }
 
@@ -233,6 +240,31 @@ namespace SoftwareProject
             SolicitarServicio s = new SolicitarServicio(cnx, userID);
             s.Visible = true;
 
+        }
+
+        private void btnFinanzas_Click(object sender, EventArgs e)
+        {
+            Mostrar(subMenuFinanza);
+        }
+
+        private void btnCuentas_Click(object sender, EventArgs e)
+        {
+            Ocultar();
+        }
+
+        private void btnActividad_Click(object sender, EventArgs e)
+        {
+            Ocultar();
+        }
+
+        private void btnVerSolicitudes_Click(object sender, EventArgs e)
+        {
+            Ocultar();
+        }
+
+        private void btnComprarA_Click(object sender, EventArgs e)
+        {
+            Ocultar();
         }
     }
 }
